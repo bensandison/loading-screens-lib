@@ -5,7 +5,7 @@ import Planet from "./scenes/Planet";
 import SpinningBox from "./scenes/SpinningBox";
 
 export default function App() {
-	const [scene, setScene] = useState(<SpinningBox />);
+	const [scene, setScene] = useState(<Planet />);
 
 	return (
 		<Box className="App" height="100vh" m={0}>
