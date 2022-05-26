@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { useState, useRef } from "react";
 import Planet from "./scenes/Planet";
 import SpinningBox from "./scenes/SpinningBox";
+import PlanetUserRotate from "./scenes/PlanetUserRotate";
 
 const canvasSize = 300;
 
@@ -14,6 +15,10 @@ export default function App() {
 	const scenesArr = [
 		{ name: "Planet", element: <Planet mouseRef={mouseRef} /> },
 		{ name: "Spinning Box", element: <SpinningBox /> },
+		{
+			name: "Planet User Rotate",
+			element: <PlanetUserRotate mouseRef={mouseRef} />,
+		},
 	];
 
 	const [scene, setScene] = useState(scenesArr[0].element);
