@@ -45,10 +45,22 @@ export default function App() {
 					Loading...
 				</Text>
 			</Flex>
-			<Flex height="10%" direction="row" align="center" justify="center">
+			<Flex
+				height="10%"
+				direction="row"
+				align="center"
+				justify="center"
+				gap="2"
+			>
 				{scenesArr.map((item, i) => {
 					return (
-						<Button key={i} onClick={() => setScene(item.element)}>
+						<Button
+							key={i}
+							onClick={() => setScene(item.element)}
+							py="8"
+							px="5"
+							fontSize="2xl"
+						>
 							{item.name}
 						</Button>
 					);
