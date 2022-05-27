@@ -4,6 +4,7 @@ import { useState, useRef } from "react";
 import Planet from "./scenes/Planet";
 import SpinningBox from "./scenes/SpinningBox";
 import PlanetUserRotate from "./scenes/PlanetUserRotate";
+import { Stats } from "@react-three/drei";
 
 const canvasSize = 300;
 
@@ -44,6 +45,7 @@ export default function App() {
 						<spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
 						<pointLight position={[-10, -10, -10]} />
 						{scene}
+						<Stats></Stats>
 					</Canvas>
 				</Box>
 				<Text fontSize="4xl" fontWeight="semibold">
