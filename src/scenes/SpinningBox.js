@@ -1,7 +1,7 @@
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
-export default function SpinningBox() {
+export default function SpinningBox(props) {
 	const boxRef = useRef();
 	useFrame((state, delta) => {
 		boxRef.current.rotation.x += 0.02;
