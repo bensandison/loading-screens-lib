@@ -5,6 +5,7 @@ import HotAirBalloon from "./scenes/HotAirBalloon";
 import Taurus from "./scenes/Taurus";
 import PlanetUserRotate from "./scenes/PlanetUserRotate";
 import { Stats } from "@react-three/drei";
+import ColorTaurus from "./scenes/ColorTaurus";
 
 const canvasSize = 300;
 
@@ -13,10 +14,12 @@ export default function App() {
 	const mouseRef = useRef();
 
 	// All scenes to create buttons out of:
+	const sceneProps = { mouseRef: mouseRef };
 	const scenesArr = [
-		{ name: "Taurus", element: <Taurus mouseRef={mouseRef} /> },
-		{ name: "Balloon", element: <HotAirBalloon mouseRef={mouseRef} /> },
-		{ name: "Planet", element: <PlanetUserRotate mouseRef={mouseRef} /> },
+		{ name: "Taurus", element: <Taurus {...sceneProps} /> },
+		{ name: "Balloon", element: <HotAirBalloon {...sceneProps} /> },
+		{ name: "Planet", element: <PlanetUserRotate {...sceneProps} /> },
+		{ name: "Color Taurus", element: <ColorTaurus {...sceneProps} /> },
 	];
 
 	const [scene, setScene] = useState(scenesArr[0].element);
