@@ -1,0 +1,11 @@
+Model Information:
+* title:	hot air balloon free
+* source:	https://sketchfab.com/3d-models/hot-air-balloon-free-607bc6fac59b48a5b4b534eb104ede98
+* author:	cami (https://sketchfab.com/Mounir.Chidmi)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "hot air balloon free" (https://sketchfab.com/3d-models/hot-air-balloon-free-607bc6fac59b48a5b4b534eb104ede98) by cami (https://sketchfab.com/Mounir.Chidmi) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

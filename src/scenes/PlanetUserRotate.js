@@ -3,6 +3,7 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import useMouse from "@react-hook/mouse-position";
 import mapRange from "../utils/mapRange";
+import { MathUtils } from "three";
 
 export default function PlanetUserRotate({ mouseRef }) {
 	const mouse = useMouse(mouseRef, {
@@ -10,28 +11,25 @@ export default function PlanetUserRotate({ mouseRef }) {
 		leaveDelay: 100,
 	});
 
-	const [spinX, setSpinX] = useState(0.04);
-	useEffect(() => {
-		if (!mouse.x) return;
-		const newPos = mapRange(mouse.x, 0, mouse.elementWidth, -0.15, 0.15);
-		setSpinX(newPos);
-	}, [mouse.elementWidth, mouse.x]);
-
-	const [spinY, setSpinY] = useState(0.04);
-	useEffect(() => {
-		if (!mouse.y) return;
-		const newPos = mapRange(mouse.y, 0, mouse.elementHeight, 0.02, -0.02);
-		setSpinY(newPos);
-	}, [mouse.elementHeight, mouse.y]);
-
 	const gltf = useLoader(GLTFLoader, "/little_planet/scene.gltf");
 
 	const objRef = useRef();
 
-	useFrame((state, delta) => {
-		objRef.current.rotation.y += spinX;
-		objRef.current.rotation.z += spinY;
-	});
+	useEffect(() => {
+		if (!mouse.x) return;
+		let newRot = mapRange(mouse.x, 0, mouse.elementWidth, -180, 180);
+		newRot = MathUtils.degToRad(newRot);
+
+		objRef.current.rotation.y = newRot;
+	}, [mouse.elementWidth, mouse.x]);
+
+	useEffect(() => {
+		if (!mouse.y) return;
+		let newRot = mapRange(mouse.y, 0, mouse.elementHeight, -70, 110);
+		newRot = MathUtils.degToRad(newRot);
+
+		objRef.current.rotation.x = newRot;
+	}, [mouse.elementHeight, mouse.y]);
 
 	return (
 		<Suspense fallback={null}>
