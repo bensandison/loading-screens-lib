@@ -1,8 +1,8 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Spinner, Text } from "@chakra-ui/react";
 import { Canvas } from "@react-three/fiber";
 import { useState, useRef } from "react";
 import HotAirBalloon from "./scenes/HotAirBalloon";
-import SpinningBox from "./scenes/SpinningBox";
+import Taurus from "./scenes/Taurus";
 import PlanetUserRotate from "./scenes/PlanetUserRotate";
 import { Stats } from "@react-three/drei";
 
@@ -15,7 +15,7 @@ export default function App() {
 	// All scenes to create buttons out of:
 	const scenesArr = [
 		{ name: "Hot Air Balloon", element: <HotAirBalloon mouseRef={mouseRef} /> },
-		{ name: "Spinning Box", element: <SpinningBox /> },
+		{ name: "Spinning Box", element: <Taurus mouseRef={mouseRef} /> },
 		{
 			name: "Planet User Rotate",
 			element: <PlanetUserRotate mouseRef={mouseRef} />,
@@ -48,9 +48,12 @@ export default function App() {
 						<Stats></Stats>
 					</Canvas>
 				</Box>
-				<Text fontSize="4xl" fontWeight="semibold">
-					Loading...
-				</Text>
+				<Flex justify="center" align="center" gap={2}>
+					<Spinner size="lg" thickness="3px" speed="0.5s"></Spinner>
+					<Text fontSize="4xl" fontWeight="semibold">
+						Loading
+					</Text>
+				</Flex>
 			</Flex>
 			<Flex
 				height="10%"
