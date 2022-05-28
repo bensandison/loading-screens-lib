@@ -1,7 +1,7 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { Canvas } from "@react-three/fiber";
 import { useState, useRef } from "react";
-import Planet from "./scenes/Planet";
+import HotAirBalloon from "./scenes/HotAirBalloon";
 import SpinningBox from "./scenes/SpinningBox";
 import PlanetUserRotate from "./scenes/PlanetUserRotate";
 import { Stats } from "@react-three/drei";
@@ -14,7 +14,7 @@ export default function App() {
 
 	// All scenes to create buttons out of:
 	const scenesArr = [
-		{ name: "Planet", element: <Planet mouseRef={mouseRef} /> },
+		{ name: "Hot Air Balloon", element: <HotAirBalloon mouseRef={mouseRef} /> },
 		{ name: "Spinning Box", element: <SpinningBox /> },
 		{
 			name: "Planet User Rotate",

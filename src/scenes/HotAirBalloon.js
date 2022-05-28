@@ -18,12 +18,12 @@ export default function Planet({ mouseRef }) {
 		if (!mouse.x) return;
 		const newPos = mapRange(mouse.x, 0, mouse.elementWidth, -0.7, 0.7);
 		objRef.current.position.x = newPos;
-	}, [mouse.elementWidth, mouse.x]);
+	}, [mouse.elementWidth, mouse.isDown, mouse.x]);
 	useEffect(() => {
 		if (!mouse.y) return;
 		const newPos = mapRange(mouse.y, mouse.elementHeight, 0, -0.5, 0.5);
 		objRef.current.position.y = newPos;
-	}, [mouse.elementHeight, mouse.y]);
+	}, [mouse.elementHeight, mouse.isDown, mouse.y]);
 
 	useFrame((state, delta) => {
 		objRef.current.rotation.y += 0.04;
