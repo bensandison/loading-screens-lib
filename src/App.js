@@ -14,12 +14,9 @@ export default function App() {
 
 	// All scenes to create buttons out of:
 	const scenesArr = [
-		{ name: "Hot Air Balloon", element: <HotAirBalloon mouseRef={mouseRef} /> },
-		{ name: "Spinning Box", element: <Taurus mouseRef={mouseRef} /> },
-		{
-			name: "Planet User Rotate",
-			element: <PlanetUserRotate mouseRef={mouseRef} />,
-		},
+		{ name: "Taurus", element: <Taurus mouseRef={mouseRef} /> },
+		{ name: "Balloon", element: <HotAirBalloon mouseRef={mouseRef} /> },
+		{ name: "Planet", element: <PlanetUserRotate mouseRef={mouseRef} /> },
 	];
 
 	const [scene, setScene] = useState(scenesArr[0].element);
