@@ -31,8 +31,8 @@ export default function ColorTaurus({ mouseRef }) {
 	return (
 		<>
 			<mesh ref={boxRef} scale={[1, 1, 1]}>
-				<torusKnotGeometry args={[1.5, 0.5]}></torusKnotGeometry>
-				<meshBasicMaterial color={colorArray[index]}></meshBasicMaterial>
+				<torusKnotGeometry args={[1.5, 0.4, 139, 3, 3, 5]}></torusKnotGeometry>
+				<meshPhysicalMaterial color={colorArray[index]}></meshPhysicalMaterial>
 			</mesh>
 		</>
 	);
