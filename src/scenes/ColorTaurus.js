@@ -12,14 +12,14 @@ export default function ColorTaurus({ mouseRef }) {
 	const [index, setIndex] = useState(0);
 
 	useEffect(() => {
-		if (!mouse.isDown) return;
+		if (!mouse.isDown && !mouse.isTouch) return;
 
 		// jump through colorArray
 		setIndex((prev) => {
 			if (prev > colorArray.length - 2) return 0;
 			else return prev + 1;
 		});
-	}, [mouse.isDown, mouse.isTouch]);
+	}, [colorArray.length, mouse.isDown, mouse.isTouch]);
 
 	const boxRef = useRef();
 
