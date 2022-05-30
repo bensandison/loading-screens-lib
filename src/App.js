@@ -1,25 +1,29 @@
-import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Spinner, Text } from "@chakra-ui/react";
 import { Canvas } from "@react-three/fiber";
 import { useState, useRef } from "react";
-import Planet from "./scenes/Planet";
-import SpinningBox from "./scenes/SpinningBox";
+import HotAirBalloon from "./scenes/HotAirBalloon";
+import Taurus from "./scenes/Taurus";
 import PlanetUserRotate from "./scenes/PlanetUserRotate";
-import { Stats } from "@react-three/drei";
+import { Stats, useGLTF } from "@react-three/drei";
+import ColorTaurus from "./scenes/ColorTaurus";
 
 const canvasSize = 300;
+
+// Preload models:
+useGLTF.preload("/hot_air_balloon/scene.gltf");
+useGLTF.preload("/little_planet/scene.gltf");
 
 export default function App() {
 	// Mouse ref - passed as a prop so scenes can call useMouse():
 	const mouseRef = useRef();
 
 	// All scenes to create buttons out of:
+	const sceneProps = { mouseRef: mouseRef };
 	const scenesArr = [
-		{ name: "Planet", element: <Planet mouseRef={mouseRef} /> },
-		{ name: "Spinning Box", element: <SpinningBox /> },
-		{
-			name: "Planet User Rotate",
-			element: <PlanetUserRotate mouseRef={mouseRef} />,
-		},
+		{ name: "Taurus", element: <Taurus {...sceneProps} /> },
+		{ name: "Balloon", element: <HotAirBalloon {...sceneProps} /> },
+		{ name: "Planet", element: <PlanetUserRotate {...sceneProps} /> },
+		{ name: "Color Taurus", element: <ColorTaurus {...sceneProps} /> },
 	];
 
 	const [scene, setScene] = useState(scenesArr[0].element);
@@ -48,9 +52,12 @@ export default function App() {
 						<Stats></Stats>
 					</Canvas>
 				</Box>
-				<Text fontSize="4xl" fontWeight="semibold">
-					Loading...
-				</Text>
+				<Flex justify="center" align="center" gap={2}>
+					<Spinner size="lg" thickness="3px" speed="0.5s"></Spinner>
+					<Text fontSize="4xl" fontWeight="semibold">
+						Loading
+					</Text>
+				</Flex>
 			</Flex>
 			<Flex
 				height="10%"
