@@ -7,6 +7,7 @@ import PlanetUserRotate from "./scenes/PlanetUserRotate";
 import { Stats, useGLTF } from "@react-three/drei";
 import ColorTaurus from "./scenes/ColorTaurus";
 import HeadPhones from "./scenes/HeadPhones";
+import PlainLoading from "./scenes/PlainLoading";
 
 const canvasSize = 300;
 
@@ -27,6 +28,7 @@ export default function App() {
 		{ name: "Planet", element: <PlanetUserRotate {...sceneProps} /> },
 		{ name: "Color Taurus", element: <ColorTaurus {...sceneProps} /> },
 		{ name: "Headphones", element: <HeadPhones {...sceneProps} /> },
+		{ name: "No animation", element: <PlainLoading /> },
 	];
 
 	const [scene, setScene] = useState(scenesArr[0].element);
