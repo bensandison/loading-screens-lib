@@ -6,24 +6,32 @@ import Taurus from "./scenes/Taurus";
 import PlanetUserRotate from "./scenes/PlanetUserRotate";
 import { Stats, useGLTF } from "@react-three/drei";
 import ColorTaurus from "./scenes/ColorTaurus";
+import HeadPhones from "./scenes/HeadPhones";
+import PlainLoading from "./scenes/PlainLoading";
 
 const canvasSize = 300;
 
 // Preload models:
 useGLTF.preload("/hot_air_balloon/scene.gltf");
 useGLTF.preload("/little_planet/scene.gltf");
+useGLTF.preload("/head_phones/scene.gltf");
 
 export default function App() {
 	// Mouse ref - passed as a prop so scenes can call useMouse():
 	const mouseRef = useRef();
 
 	// All scenes to create buttons out of:
-	const sceneProps = { mouseRef: mouseRef };
+	const sceneProps = { mouseRef: mouseRef }; //Pass in using array destructuring
 	const scenesArr = [
 		{ name: "Taurus", element: <Taurus {...sceneProps} /> },
 		{ name: "Balloon", element: <HotAirBalloon {...sceneProps} /> },
 		{ name: "Planet", element: <PlanetUserRotate {...sceneProps} /> },
 		{ name: "Color Taurus", element: <ColorTaurus {...sceneProps} /> },
+		{
+			name: "Headphones (no interaction)",
+			element: <HeadPhones {...sceneProps} />,
+		},
+		{ name: "No animation", element: <PlainLoading /> },
 	];
 
 	const [scene, setScene] = useState(scenesArr[0].element);
@@ -65,6 +73,7 @@ export default function App() {
 				align="center"
 				justify="center"
 				gap="2"
+				wrap="wrap"
 			>
 				{scenesArr.map((item, i) => {
 					return (
