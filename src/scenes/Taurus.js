@@ -17,18 +17,17 @@ export default function SpinningBox({ mouseRef }) {
 	const [wireframe, setWireframe] = useState(false);
 
 	useEffect(() => {
-		if (mouse.isDown) setWireframe(true);
-		else setWireframe(false);
-	});
+		if (mouse.isDown || mouse.isTouch)
+			setWireframe((prev) => {
+				return !prev;
+			});
+	}, [mouse.isDown, mouse.isTouch]);
 
 	return (
 		<>
 			<mesh ref={boxRef} scale={[1, 1, 1]}>
 				<torusKnotGeometry args={[1.5, 0.5]}></torusKnotGeometry>
-				<meshNormalMaterial
-					wireframe={wireframe}
-					// flatShading
-				></meshNormalMaterial>
+				<meshNormalMaterial wireframe={wireframe}></meshNormalMaterial>
 			</mesh>
 		</>
 	);

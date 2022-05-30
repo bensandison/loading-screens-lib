@@ -8,7 +8,7 @@ export default function ColorTaurus({ mouseRef }) {
 		leaveDelay: 100,
 	});
 
-	const colorArray = ["blue", "green", "red"];
+	const colorArray = ["#049ef4", "green", "red", "#ff0", "#f204f6"];
 	const [index, setIndex] = useState(0);
 
 	useEffect(() => {
@@ -31,8 +31,8 @@ export default function ColorTaurus({ mouseRef }) {
 	return (
 		<>
 			<mesh ref={boxRef} scale={[1, 1, 1]}>
-				<torusKnotGeometry args={[1.5, 0.4, 139, 3, 3, 5]}></torusKnotGeometry>
-				<meshPhysicalMaterial color={colorArray[index]}></meshPhysicalMaterial>
+				<torusKnotGeometry args={[1.7, 0.5, 100, 3, 3, 2]}></torusKnotGeometry>
+				<meshToonMaterial color={colorArray[index]}></meshToonMaterial>
 			</mesh>
 		</>
 	);
