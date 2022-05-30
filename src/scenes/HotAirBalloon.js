@@ -1,8 +1,8 @@
-import { useFrame, useLoader } from "@react-three/fiber";
-import { Suspense, useEffect, useRef } from "react";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useFrame } from "@react-three/fiber";
+import { Suspense, useEffect, useMemo, useRef } from "react";
 import useMouse from "@react-hook/mouse-position";
 import mapRange from "../utils/mapRange";
+import { useGLTF } from "@react-three/drei";
 
 export default function Planet({ mouseRef }) {
 	const mouse = useMouse(mouseRef, {
@@ -10,7 +10,9 @@ export default function Planet({ mouseRef }) {
 		leaveDelay: 100,
 	});
 
-	const gltf = useLoader(GLTFLoader, "/hot_air_balloon/scene.gltf");
+	const { scene } = useGLTF("/hot_air_balloon/scene.gltf");
+	const copiedScene = useMemo(() => scene.clone(), [scene]);
+
 	const objRef = useRef();
 
 	// positioning can be changed by the mouse:
@@ -33,7 +35,7 @@ export default function Planet({ mouseRef }) {
 		<Suspense fallback={null}>
 			<primitive
 				ref={objRef}
-				object={gltf.scene}
+				object={copiedScene}
 				scale={1.2}
 				position={[0, 0, 0]}
 			/>

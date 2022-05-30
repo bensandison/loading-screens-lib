@@ -4,10 +4,14 @@ import { useState, useRef } from "react";
 import HotAirBalloon from "./scenes/HotAirBalloon";
 import Taurus from "./scenes/Taurus";
 import PlanetUserRotate from "./scenes/PlanetUserRotate";
-import { Stats } from "@react-three/drei";
+import { Stats, useGLTF } from "@react-three/drei";
 import ColorTaurus from "./scenes/ColorTaurus";
 
 const canvasSize = 300;
+
+// Preload models:
+useGLTF.preload("/hot_air_balloon/scene.gltf");
+useGLTF.preload("/little_planet/scene.gltf");
 
 export default function App() {
 	// Mouse ref - passed as a prop so scenes can call useMouse():
