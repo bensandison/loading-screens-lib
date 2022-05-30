@@ -27,7 +27,10 @@ export default function App() {
 		{ name: "Balloon", element: <HotAirBalloon {...sceneProps} /> },
 		{ name: "Planet", element: <PlanetUserRotate {...sceneProps} /> },
 		{ name: "Color Taurus", element: <ColorTaurus {...sceneProps} /> },
-		{ name: "Headphones", element: <HeadPhones {...sceneProps} /> },
+		{
+			name: "Headphones (no interaction)",
+			element: <HeadPhones {...sceneProps} />,
+		},
 		{ name: "No animation", element: <PlainLoading /> },
 	];
 
@@ -70,6 +73,7 @@ export default function App() {
 				align="center"
 				justify="center"
 				gap="2"
+				wrap="wrap"
 			>
 				{scenesArr.map((item, i) => {
 					return (
