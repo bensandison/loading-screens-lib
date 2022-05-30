@@ -23,15 +23,15 @@ export default function App() {
 	// All scenes to create buttons out of:
 	const sceneProps = { mouseRef: mouseRef }; //Pass in using array destructuring
 	const scenesArr = [
-		{ name: "Taurus", element: <Taurus {...sceneProps} /> },
-		{ name: "Balloon", element: <HotAirBalloon {...sceneProps} /> },
-		{ name: "Planet", element: <PlanetUserRotate {...sceneProps} /> },
-		{ name: "Color Taurus", element: <ColorTaurus {...sceneProps} /> },
+		{ name: "A: Taurus", element: <Taurus {...sceneProps} /> },
+		{ name: "B: Balloon", element: <HotAirBalloon {...sceneProps} /> },
+		{ name: "C: Planet", element: <PlanetUserRotate {...sceneProps} /> },
+		{ name: "D: Color Taurus", element: <ColorTaurus {...sceneProps} /> },
 		{
-			name: "Headphones (no interaction)",
+			name: "E: Headphones",
 			element: <HeadPhones {...sceneProps} />,
 		},
-		{ name: "No animation", element: <PlainLoading /> },
+		{ name: "F: No animation", element: <PlainLoading /> },
 	];
 
 	const [scene, setScene] = useState(scenesArr[0].element);
